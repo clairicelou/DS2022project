@@ -1,0 +1,28 @@
+[
+  {
+    "filename": "20251110T190618_lionimage.jpeg",
+    "filepath": "static/uploads/20251110T190618_lionimage.jpeg",
+    "timestamp": "2025-11-10T19:06:18.346683"
+  },
+  {
+    "filename": "EcoTrack_Lion_Central_Park_20251110T192342_lionimage.jpeg",
+    "filepath": "static/uploads/EcoTrack_Lion_Central_Park_20251110T192342_lionimage.jpeg",
+    "species": "Lion",
+    "location": "Central_Park",
+    "timestamp": "2025-11-10T19:23:42.509314"
+  },
+  {
+    "filename": "EcoTrack_Pandas_China_20251110T193952_pandasss.jpg",
+    "filepath": "static/uploads/EcoTrack_Pandas_China_20251110T193952_pandasss.jpg",
+    "species": "Pandas",
+    "location": "China",
+    "timestamp": "2025-11-10T19:39:52.629080"
+  },
+  {
+    "filename": "flamingos.jpeg",
+    "filepath": "static/uploads/EcoTrack_Flamingos_South_America_20251110T202005_flamingos.jpeg",
+    "species": "Flamingos",
+    "location": "South_America",
+    "timestamp": "2025-11-10T20:20:05.352958"
+  }
+]
