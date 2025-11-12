@@ -24,5 +24,12 @@
     "species": "Flamingos",
     "location": "South_America",
     "timestamp": "2025-11-10T20:20:05.352958"
+  },
+  {
+    "filename": "Red-Panda.jpg",
+    "filepath": "/static/uploads/EcoTrack_red_panda_asia_20251112T045752_Red-Panda.jpg",
+    "species": "red_panda",
+    "location": "asia",
+    "timestamp": "2025-11-12T04:57:52.089312"
   }
 ]

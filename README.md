@@ -63,7 +63,7 @@ Uploaded data is logged in /logs/data.json so I can track uploads. The app isnâ€
 
 ## 5. Results & Evaluation
 **Gallery Example**
-![Gallery Screenshot](assets/app_gallery.png)
+![Gallery Example](assets/app_gallery.png)
 
 **Sample Output (from Upload)**
 {
