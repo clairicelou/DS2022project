@@ -28,7 +28,12 @@ Solution: The Wildlife Image Logger is a web app built with Flask that lets user
 #### a. Build the image
 docker build -t ecotrack:latest .
 #### b. Run the container
-docker run --rm -p 5001:5000 ecotrack:latest
+docker run --rm -p 5001:5000 \
+  -v $(pwd)/logs:/app/logs \
+  -v $(pwd)/static/uploads:/app/static/uploads \
+  ecotrack:latest
+
+(Mounts local folders so uploaded files and logs are saved persistently.)
 #### c. Then open your web browser and go to:
 http://localhost:5001
 #### d. Health check
@@ -111,5 +116,6 @@ Sample Output (from Gallery):
 
 ## 7. Links (Required)
 GitHub Repo: https://github.com/clairicelou/DS2022project 
+
 Public Cloud App (optional): <INSERT-CLOUD-URL>
 

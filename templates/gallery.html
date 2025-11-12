@@ -62,9 +62,9 @@
 
   <div class="gallery">
     {% if images %}
-      {% for image, info in images %}
+      {% for info in images %}
         <div class="item">
-          <img src="{{ image }}" alt="Wildlife image">
+          <img src="{{ info.filepath }}" alt="Wildlife image">
           <p><b>Species:</b> {{ info.species }}</p>
           <p><b>Location:</b> {{ info.location }}</p>
         </div>
@@ -77,4 +77,5 @@
   <p><a href="/">Upload Another Image</a></p>
 </body>
 </html>
+
 
