@@ -11,10 +11,10 @@ Solution: The Wildlife Image Logger is a web app built with Flask that lets user
 
 ## 2. System Overview
 - **Course Concepts**: 
-  - Flask API: Created a simple web app with upload and gallery pages for managing images
-  - Flask Routing & File Uploads: Implemented endpoints for image handling and metadata logging
-  - Structured Logging (JSON): Stored upload metadata (species, location, timestamp) in a local JSON file
-  - Docker Containerization: Packaged the entire app in a reproducible environment for easy deployment
+  - Flask API: Used to build the upload form, gallery page, and health endpoint
+  - Flask Routing & File Uploads: Receives the uploaded image, verifies the extension, stores the file, and responds with JSON
+  - Structured Logging (JSON): Every upload is logged to /logs/data.json with timestamp, species, location, and filename
+  - Docker Containerization: Creates a stable, repeatable environment so the app runs anywhere with one command
 - **Architecture Diagram**: 
   - ![Architecture Diagram](assets/architecture.png)
 - **Data/Models/Services**: 
@@ -55,11 +55,11 @@ Using Docker makes setup a little more complicated, but it lets the app run anyw
 
 **Security/Privacy:** 
 
-Input validation ensures only image files are uploaded. No sensitive user data (PII) is collected. Secrets management was not required for this project.
+Input validation ensures only image files are uploaded. No sensitive user data (PII) is collected. Secrets management was not required for this project. Secrets aren’t kept in the code since putting credentials in a public repo isn’t safe. Instead, any cloud credentials go in a local .env file that isn’t pushed to GitHub. If Azure were used, the images would go into a private blob container so they’re not accessible to the public.
 
 **Ops:** 
 
-Uploaded data is logged in /logs/data.json so I can track uploads. The app isn’t built for heavy traffic, but it works smoothly in a single Docker container.
+Running the app in Docker keeps all the dependencies separated from the system and makes resource usage more consistent. Uploaded data is logged in /logs/data.json so I can track uploads. The app isn’t built for heavy traffic, but it works smoothly in a single Docker container.
 
 ## 5. Results & Evaluation
 **Gallery Example**
@@ -80,6 +80,7 @@ Uploaded data is logged in /logs/data.json so I can track uploads. The app isn�
 **Validation Testing**
 - Verified /upload, /gallery, and /health endpoints using curl.
 - Confirmed that uploaded images appear in /static/uploads/ and show correctly in the gallery.
+- Validated the app by testing both valid and invalid uploads (wrong file types, missing files) and confirmed that the API returned the correct error responses
 
 ### Tested endpoints with curl commands:
 #### Upload a test image
