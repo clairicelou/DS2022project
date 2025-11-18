@@ -2,12 +2,9 @@
 
 
 ## 1. Executive Summary
-Flask web app for collecting and displaying wildlife photos. Users upload images, which are logged with metadata and shown in a public gallery.
-
 Problem: Wildlife researchers and environmental scientists often have trouble keeping track of wildlife and animal sighting over time efficiently.
 
-Solution: The Wildlife Image Logger is a web app built with Flask that lets users upload wildlife photos from their phones or computers, tag them by species and location, and view them in a searchable gallery. The images are stored either in the cloud (using Azure Blob Storage) or on the local computer for demos, and they show up automatically in a public gallery. This makes it easy to check uploads, share data with field teams, and keep track of wildlife sightings over time, without needing complicated tools or manual logs.
-
+Solution: The Wildlife Image Logger is a web app built with Flask that lets users upload wildlife photos, tag them by species and location, and view them in a searchable gallery. Uploaded images are stored locally on the server (inside static/uploads/), and each upload is logged in logs/data.json. The gallery automatically displays new images as they’re added. This makes it easy way to organize wildlife sightings, track observations over time, and review submissions without needing complex tools.
 
 ## 2. System Overview
 - **Course Concepts**: 
@@ -18,7 +15,7 @@ Solution: The Wildlife Image Logger is a web app built with Flask that lets user
 - **Architecture Diagram**: 
   - ![Architecture Diagram](assets/architecture.png)
 - **Data/Models/Services**: 
-  - Uploads: Stored under `/static/uploads/`
+  - Uploads: User uploaded images stored under `/static/uploads/`
   - Logs: Stored in `/logs/data.json`
   - File naming: Automatically includes species, location, and timestamp (for organization)
   - Formats: Accepts common image types (.png, .jpg, .jpeg)
@@ -66,45 +63,61 @@ Running the app in Docker keeps all the dependencies separated from the system a
 ![Gallery Example](assets/app_gallery.png)
 
 **Sample Output (from Upload)**
+
 {
+
   "ok": true,
+
   "message": "Upload successful!",
+
   "file": "EcoTrack_Flamingos_South_America_20251110T202005_flamingos.jpeg"
+
 }
 
 **Performance Notes**
 - App starts instantly in Docker.
 - Memory footprint <50MB.
-- Uploads and gallery rendering are fast.
+- Uploads save in less than a second.
+- Gallery loads quickly. 
 
 **Validation Testing**
 - Verified /upload, /gallery, and /health endpoints using curl.
 - Confirmed that uploaded images appear in /static/uploads/ and show correctly in the gallery.
-- Validated the app by testing both valid and invalid uploads (wrong file types, missing files) and confirmed that the API returned the correct error responses
+- Validated the app by testing both valid and invalid uploads (wrong file types, missing files) and confirmed that the API returned the correct error responses.
 
-### Tested endpoints with curl commands:
+**Tested endpoints with curl commands:**
 #### Upload a test image
 curl -X POST -F "file=@assets/test-image.png" http://localhost:5001/api/v1/upload
 
-Sample Output (from Upload):
+#### Output:
 
 {
+
   "file": "test-image.png",
+
   "message": "Upload successful!",
+
   "ok": true,
+
   "url": "/static/uploads/EcoTrack_unknown_unspecified_20251111T012352_test-image.png"
+
 }
 
 #### Fetch gallery
 curl http://localhost:5001/api/v1/gallery
 
-Sample Output (from Gallery):
+#### Output:
 
 {
+
   "gallery": [
+
     "/static/uploads/EcoTrack_unknown_unspecified_20251111T012352_test-image.png"
+
   ],
+
   "ok": true
+  
 }
 
 
