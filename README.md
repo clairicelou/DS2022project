@@ -67,9 +67,7 @@ Running the app in Docker keeps all the dependencies separated from the system a
 {
 
   "ok": true,
-
   "message": "Upload successful!",
-
   "file": "EcoTrack_Flamingos_South_America_20251110T202005_flamingos.jpeg"
 
 }
@@ -117,7 +115,7 @@ curl http://localhost:5001/api/v1/gallery
   ],
 
   "ok": true
-  
+
 }
 
 
