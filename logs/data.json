@@ -31,5 +31,19 @@
     "species": "red_panda",
     "location": "asia",
     "timestamp": "2025-11-12T04:57:52.089312"
+  },
+  {
+    "filename": "pexels-peter-h-761437.jpg",
+    "filepath": "/static/uploads/EcoTrack_Zebra_Africa_20251116T024954_pexels-peter-h-761437.jpg",
+    "species": "Zebra",
+    "location": "Africa",
+    "timestamp": "2025-11-16T02:49:54.090567"
+  },
+  {
+    "filename": "test-image.png",
+    "filepath": "/static/uploads/EcoTrack_unknown_unspecified_20251116T025156_test-image.png",
+    "species": "unknown",
+    "location": "unspecified",
+    "timestamp": "2025-11-16T02:51:56.642258"
   }
 ]

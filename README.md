@@ -24,17 +24,25 @@ Solution: The Wildlife Image Logger is a web app built with Flask that lets user
 ## 3. How to Run (Docker) 
 #### a. Build the image
 docker build -t ecotrack:latest .
+
 #### b. Run the container
-docker run --rm -p 5001:5000 \
-  -v $(pwd)/logs:/app/logs \
-  -v $(pwd)/static/uploads:/app/static/uploads \
+
+```bash
+docker run --rm -p 5000:5000 /
+  -v $(pwd)/logs:/app/logs /
+  -v $(pwd)/static/uploads:/app/static/uploads /
   ecotrack:latest
+```
 
 (Mounts local folders so uploaded files and logs are saved persistently.)
+
 #### c. Then open your web browser and go to:
-http://localhost:5001
+
+http://localhost:5000
+
 #### d. Health check
-curl http://localhost:5001/health
+
+curl http://localhost:5000/health
 
 
 ## 4. Design Decisions
@@ -64,15 +72,13 @@ Running the app in Docker keeps all the dependencies separated from the system a
 
 **Sample Output (from Upload)**
 
+```bash
 {
-
   "ok": true,
-
   "message": "Upload successful!",
-  
   "file": "EcoTrack_Flamingos_South_America_20251110T202005_flamingos.jpeg"
-
 }
+```
 
 **Performance Notes**
 - App starts instantly in Docker.
@@ -87,39 +93,33 @@ Running the app in Docker keeps all the dependencies separated from the system a
 
 **Tested endpoints with curl commands:**
 #### Upload a test image
-curl -X POST -F "file=@assets/test-image.png" http://localhost:5001/api/v1/upload
+curl -X POST -F "file=@assets/test-image.png" http://localhost:5000/api/v1/upload
 
 #### Output:
 
+```bash
 {
-
   "file": "test-image.png",
-
   "message": "Upload successful!",
-
   "ok": true,
-
   "url": "/static/uploads/EcoTrack_unknown_unspecified_20251111T012352_test-image.png"
-
 }
+```
 
 #### Fetch gallery
-curl http://localhost:5001/api/v1/gallery
+
+curl http://localhost:5000/api/v1/gallery
 
 #### Output:
 
+```bash
 {
-
   "gallery": [
-
     "/static/uploads/EcoTrack_unknown_unspecified_20251111T012352_test-image.png"
-
   ],
-
   "ok": true
-
 }
-
+```
 
 ## 6. What’s Next
 - Show a preview of the image on the upload page so users can see it before they submit.

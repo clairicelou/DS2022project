@@ -4,7 +4,11 @@ import json
 from datetime import datetime
 from flask import Flask, request, render_template, jsonify
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="templates",
+    static_folder="../static"
+)
 
 # ---------- Config ----------
 UPLOAD_FOLDER = os.path.join("static", "uploads")
