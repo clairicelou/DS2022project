@@ -23,14 +23,17 @@ Solution: The Wildlife Image Logger is a web app built with Flask that lets user
 
 ## 3. How to Run (Docker) 
 #### a. Build the image
+
+```bash
 docker build -t ecotrack:latest .
+```
 
 #### b. Run the container
 
 ```bash
-docker run --rm -p 5000:5000 /
-  -v $(pwd)/logs:/app/logs /
-  -v $(pwd)/static/uploads:/app/static/uploads /
+docker run --rm -p 5000:5000 \
+  -v $(pwd)/logs:/app/logs \
+  -v $(pwd)/static/uploads:/app/static/uploads \
   ecotrack:latest
 ```
 
